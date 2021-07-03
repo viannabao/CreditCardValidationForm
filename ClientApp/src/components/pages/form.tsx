@@ -5,10 +5,12 @@ import styled from "styled-components";
 
 interface IFormInputs {
   creditCardNumber: string;
+  name: string;
   cvc: string;
   expiry: boolean;
 }
 
+const nameRegex: RegExp = /[A-Za-z]{50}/;
 const creditCardNumberRegex: RegExp =
   /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
 const cvcRegex: RegExp = /[0-9]{3}/;
@@ -74,6 +76,24 @@ const CreditCardValidationForm = () => {
               )}
             </Form.Field>
 
+            <Form.Field error={!!errors.name}>
+              <label>Name</label>
+              <input
+                {...register("name", {
+                  required: "Name is required",
+                  pattern: {
+                    value: nameRegex,
+                    message: "Name value is not valid",
+                  },
+                })}
+                placeholder="Name"
+                type="text"
+              />
+              {errors.name && (
+                <ErrorMessage>{errors.name.message}</ErrorMessage>
+              )}
+            </Form.Field>
+
             <Form.Group widths="equal">
               <Form.Field error={!!errors.cvc}>
                 <label>CVC</label>
@@ -93,7 +113,7 @@ const CreditCardValidationForm = () => {
               </Form.Field>
 
               <Form.Field error={!!errors.expiry}>
-                <label>Expiry</label>
+                <label>Expiry (MM/YY)</label>
                 <input
                   {...register("expiry", {
                     required: "Expiry date is required",
