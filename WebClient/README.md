@@ -31,4 +31,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Launches the test runner in the interactive watch mode.
 
+## Future work
+- Link to the API for submitting the form - by using [react-axios]https://github.com/sheaivey/react-axios 
+- Add input masks to Credit Card Number and Expiry input fields.
+- Make the input fields be able to enter numbers only for Card Number, CVC and Expiry fields and alphabets only for the Name field.
+- Have the ability to add menu items from an array
+- Disable the submit button until all the fields are filled - user research required to check user preferences
+
 
