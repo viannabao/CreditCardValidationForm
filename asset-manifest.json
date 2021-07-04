@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/CreditCardValidationForm/static/js/main.936f5fa7.chunk.js",
+    "main.js.map": "/CreditCardValidationForm/static/js/main.936f5fa7.chunk.js.map",
+    "runtime-main.js": "/CreditCardValidationForm/static/js/runtime-main.572921a1.js",
+    "runtime-main.js.map": "/CreditCardValidationForm/static/js/runtime-main.572921a1.js.map",
+    "static/css/2.deb37453.chunk.css": "/CreditCardValidationForm/static/css/2.deb37453.chunk.css",
+    "static/js/2.44c984e0.chunk.js": "/CreditCardValidationForm/static/js/2.44c984e0.chunk.js",
+    "static/js/2.44c984e0.chunk.js.map": "/CreditCardValidationForm/static/js/2.44c984e0.chunk.js.map",
+    "static/js/3.82303e5b.chunk.js": "/CreditCardValidationForm/static/js/3.82303e5b.chunk.js",
+    "static/js/3.82303e5b.chunk.js.map": "/CreditCardValidationForm/static/js/3.82303e5b.chunk.js.map",
+    "index.html": "/CreditCardValidationForm/index.html",
+    "static/css/2.deb37453.chunk.css.map": "/CreditCardValidationForm/static/css/2.deb37453.chunk.css.map",
+    "static/js/2.44c984e0.chunk.js.LICENSE.txt": "/CreditCardValidationForm/static/js/2.44c984e0.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/CreditCardValidationForm/static/media/outline-icons.ddae9b1b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.572921a1.js",
+    "static/css/2.deb37453.chunk.css",
+    "static/js/2.44c984e0.chunk.js",
+    "static/js/main.936f5fa7.chunk.js"
+  ]
+}
