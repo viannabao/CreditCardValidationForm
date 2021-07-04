@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace WebAPI.Helpers
 {
+    /// <summary>
+    /// The <c>CreditCardValidationHelper</c> class.
+    /// Contains helper methods for validating credit card field values.
+    /// </summary>
     public class CreditCardValidationHelper
     {
         public enum CardType
@@ -56,10 +57,18 @@ namespace WebAPI.Helpers
 
         private static Regex _cvcCheck = new Regex(@"^\d{3}$");
 
-        private static Regex _nameCheck = new Regex(@"^[A-Za-z]{1,50}$");
+        private static Regex _nameCheck = new Regex(@"^[A-Za-z ]{1,50}$");
 
+        /// <summary>
+        /// Validate credit card number.
+        /// </summary>
+        /// <returns>
+        /// A boolean variable indicates if card number is valid.
+        /// </returns>
+        /// <param name="cardNumber">A string of card number</param>
         public static bool ValidateCardNumber(string cardNumber)
         {
+            // Check if the credit card number format matches any of card type
             foreach (CardTypeInfo info in _cardTypeInfo)
             {
                 if (cardNumber.Length == info.Length &&
@@ -70,16 +79,39 @@ namespace WebAPI.Helpers
             return false;
         }
 
+        /// <summary>
+        /// Validate CVC number.
+        /// </summary>
+        /// <returns>
+        /// A boolean variable indicates if CVC number is valid.
+        /// </returns>
+        /// <param name="cvc">A string of cvc number</param>
         public static bool ValidateCvc(string cvc)
         {
+            // Check if cvc contains number only, and the length exactly matches 3
             return _cvcCheck.IsMatch(cvc);
         }
 
+        /// <summary>
+        /// Validate card holder name.
+        /// </summary>
+        /// <returns>
+        /// A boolean variable indicates if card holder name is valid.
+        /// </returns>
+        /// <param name="name">A string of card holder name</param>
         public static bool ValidateName(string name)
         {
+            // Check if name contains alphabet or space only, and the lenghth is from 1 - 50 characters
             return _nameCheck.IsMatch(name);
         }
 
+        /// <summary>
+        /// Validate expiry date.
+        /// </summary>
+        /// <returns>
+        /// A boolean variable indicates if expiry date is valid.
+        /// </returns>
+        /// <param name="expiry">A string of expiry date</param>
         public static bool ValidateExpiry(string expiry)
         {
             // Expiry date in from MM/YY
