@@ -3,6 +3,8 @@ import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { Form } from "semantic-ui-react";
 import styled from "styled-components";
 
+import { Colour } from "../../helpers/constants";
+
 interface ITextInputProps {
     id: string;
   label: string;
@@ -23,7 +25,7 @@ interface ITextInputProps {
 }
 const ErrorMessage = styled.span`
   font-size: 12px;
-  color: #9f3a38;
+  color: ${Colour.dangerRed};
 `;
 
 const TextInput = (props: ITextInputProps) => {

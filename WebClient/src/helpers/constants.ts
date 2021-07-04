@@ -5,3 +5,8 @@ export const Regex = {
   cvc: /[0-9]{3}/,
   expiry: /^(0[1-9]|1[0-2])\/?([0-9]{2})$/,
 };
+
+export const Colour = {
+  primary: "#212121",
+  dangerRed: "#9f3a38",
+}

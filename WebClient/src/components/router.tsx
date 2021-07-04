@@ -4,6 +4,7 @@ import { Icon } from "semantic-ui-react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Form from "./pages/form";
+import { Colour } from "../helpers/constants";
 
 interface IProps {
   menuOpen?: any;
@@ -12,7 +13,7 @@ interface IProps {
 const HeaderBar = styled.div`
   width: 100%;
   height: 50px;
-  background-color: black;
+  background-color: ${Colour.primary};
   display: flex;
   justify-content: space-between;
 `;
@@ -26,6 +27,8 @@ const MenuIcon = styled(Icon)`
 const PageTitle = styled.h1`
   margin-top: 5px;
   color: white;
+  font-family: 'Lobster';
+  font-weight: 100;
 `;
 
 const Placeholder = styled.div`
@@ -34,7 +37,7 @@ const Placeholder = styled.div`
 
 const Navigation = styled.nav`
   height: 100vh;
-  background-color: black;
+  background-color: ${Colour.primary};
   position: fixed;
   top: 50px;
   right: 0;

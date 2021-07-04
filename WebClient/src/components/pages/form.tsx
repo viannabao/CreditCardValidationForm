@@ -11,7 +11,7 @@ import {
 import styled from "styled-components";
 
 import TextInput from "../inputs/textInput";
-import { Regex } from "../../helpers/constants";
+import { Regex, Colour } from "../../helpers/constants";
 
 interface IFormInputs {
   creditCardNumber: string;
@@ -20,6 +20,11 @@ interface IFormInputs {
   expiry: boolean;
 }
 
+const FormTitle = styled(Header)`
+  font-family: 'Lobster';
+  font-weight: 100;
+  color: ${Colour.primary};
+`;
 const FormContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -72,8 +77,8 @@ const CreditCardValidationForm = () => {
               header="Credit card info submitted!"
             />
           )}
-          
-          <Header as="h2">Welcome John Doe</Header>
+
+          <FormTitle as="h2">Welcome John Doe</FormTitle>
 
           <Divider clearing />
 
