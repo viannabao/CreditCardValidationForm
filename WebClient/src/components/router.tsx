@@ -1,20 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Icon } from "semantic-ui-react";
-import { BrowserRouter, Switch, Route, Link, useLocation } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-import Home from "./pages/home";
-import About from "./pages/about";
 import Form from "./pages/form";
 
 interface IProps {
   menuOpen?: any;
-}
-
-interface IMenuItem {
-  name: string;
-  url: string;
-  component: any;
 }
 
 const HeaderBar = styled.div`
@@ -31,8 +23,8 @@ const MenuIcon = styled(Icon)`
   color: white;
 `;
 
-const PageTitle = styled.h2`
-  margin-top: 10px;
+const PageTitle = styled.h1`
+  margin-top: 5px;
   color: white;
 `;
 
@@ -70,16 +62,16 @@ const ItemLink = styled(Link)`
   }
 `;
 
-const MenuItems: Array<IMenuItem> = [
-  { name: "Register Credit Card", url: "/", component: <Form /> },
-];
-
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [title, setTitle] = useState("Register Card Form");
+
+  // Handle open/close menu
   const handleClick = () => {
     setMenuOpen(!menuOpen);
   };
+
+  // Handle menu item clicked and header text changes
   const menuItemClicked = (event: any) => {
     handleClick();
     const target = event.target as HTMLHeadElement;
@@ -88,38 +80,35 @@ const Menu = () => {
 
   return (
     <BrowserRouter>
-      <HeaderBar>
+      <HeaderBar role="banner">
         <MenuIcon
           link
           name={menuOpen ? "angle left" : "bars"}
           size="big"
+          data-testid="menu-icon"
           onClick={handleClick}
         />
-        <PageTitle>{menuOpen ? "Menu" : title}</PageTitle>
+        <PageTitle data-testid="page-title">{menuOpen ? "Menu" : title}</PageTitle>
         <Placeholder></Placeholder>
       </HeaderBar>
 
-      <Navigation menuOpen={menuOpen}>
+      <Navigation role="navigation" menuOpen={menuOpen}>
         <List>
-          {MenuItems.map((item) => (
-            <li>
-              <ItemLink onClick={menuItemClicked} to={item.url}>
-                {item.name}
-              </ItemLink>
-            </li>
-          ))}
+          <li>
+            <ItemLink onClick={menuItemClicked} to="/" role="link">
+              Register Card Form
+            </ItemLink>
+          </li> 
         </List>
       </Navigation>
-      <div className="pages">
         <Switch>
-          {MenuItems.map((item) => (
-            <Route path={item.url}>{item.component}</Route>
-          ))}
+          <Route path="/">
+            <Form />
+          </Route>
           <Route path="*">
             <h1>Page could not be found</h1>
           </Route>
         </Switch>
-      </div>
     </BrowserRouter>
   );
 };
