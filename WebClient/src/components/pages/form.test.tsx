@@ -47,7 +47,7 @@ test("submit invalid credit card number", async () => {
   fireEvent.change(screen.getByTestId("credit-card-number-text-input"), {
     target: { value: "1214154112" },
   });
-  
+
   // Click submit
   const leftClick = { button: 0 };
   fireEvent.click(screen.getByText("Submit"), leftClick);
@@ -108,7 +108,9 @@ test("submit invalid expiry", async () => {
 
   await waitFor(() => {
     // Error message appears
-    expect(screen.getByText("Expiry date format is not valid")).toBeInTheDocument();
+    expect(
+      screen.getByText("Expiry date format is not valid")
+    ).toBeInTheDocument();
   });
 });
 

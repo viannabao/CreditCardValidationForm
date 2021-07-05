@@ -21,7 +21,7 @@ interface IFormInputs {
 }
 
 const FormTitle = styled(Header)`
-  font-family: 'Lobster';
+  font-family: "Lobster";
   font-weight: 100;
   color: ${Colour.primary};
 `;

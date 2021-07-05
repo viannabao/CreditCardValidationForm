@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Colour } from "../../helpers/constants";
 
 interface ITextInputProps {
-    id: string;
+  id: string;
   label: string;
   error: FieldError | undefined;
   register: UseFormRegisterReturn;
@@ -21,7 +21,7 @@ interface ITextInputProps {
     | "decimal"
     | "search"
     | undefined;
-    maxLength?: number;
+  maxLength?: number;
 }
 const ErrorMessage = styled.span`
   font-size: 12px;
@@ -42,7 +42,11 @@ const TextInput = (props: ITextInputProps) => {
         type="text"
         aria-invalid={!!props.error}
       />
-      {props.error && <ErrorMessage role="alert" aria-atomic="true">{props.error.message}</ErrorMessage>}
+      {props.error && (
+        <ErrorMessage role="alert" aria-atomic="true">
+          {props.error.message}
+        </ErrorMessage>
+      )}
     </Form.Field>
   );
 };

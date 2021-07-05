@@ -9,4 +9,4 @@ export const Regex = {
 export const Colour = {
   primary: "#212121",
   dangerRed: "#9f3a38",
-}
+};

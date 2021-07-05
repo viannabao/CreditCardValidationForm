@@ -27,7 +27,7 @@ const MenuIcon = styled(Icon)`
 const PageTitle = styled.h1`
   margin-top: 5px;
   color: white;
-  font-family: 'Lobster';
+  font-family: "Lobster";
   font-weight: 100;
 `;
 
@@ -91,7 +91,9 @@ const Menu = () => {
           data-testid="menu-icon"
           onClick={handleClick}
         />
-        <PageTitle data-testid="page-title">{menuOpen ? "Menu" : title}</PageTitle>
+        <PageTitle data-testid="page-title">
+          {menuOpen ? "Menu" : title}
+        </PageTitle>
         <Placeholder></Placeholder>
       </HeaderBar>
 
@@ -101,17 +103,17 @@ const Menu = () => {
             <ItemLink onClick={menuItemClicked} to="/" role="link">
               Register Card Form
             </ItemLink>
-          </li> 
+          </li>
         </List>
       </Navigation>
-        <Switch>
-          <Route path="/">
-            <Form />
-          </Route>
-          <Route path="*">
-            <h1>Page could not be found</h1>
-          </Route>
-        </Switch>
+      <Switch>
+        <Route path="/">
+          <Form />
+        </Route>
+        <Route path="*">
+          <h1>Page could not be found</h1>
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 };

@@ -181,6 +181,7 @@ ClientBin/
 orleans.codegen.cs
 
 /WebClient/node_modules
+/WebClient/coverage
 
 # RIA/Silverlight projects
 Generated_Code/
